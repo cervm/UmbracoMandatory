@@ -1,0 +1,11 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.SiteMap>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+    Layout = "master.cshtml";
+}
+
+<section class="content p-5">
+    <div class="container">
+        @Html.Partial("SiteMap")
+    </div>
+</section>
