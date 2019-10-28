@@ -1,5 +1,17 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.HomePage>
 @using ContentModels = Umbraco.Web.PublishedModels;
 @{
-	Layout = "master.cshtml";
+    Layout = "master.cshtml";
 }
+
+<section class="jumbotron text-center">
+    <div class="container">
+        <h1 class="jumbotron-heading">@Model.SiteTitle</h1>
+    </div>
+</section>
+
+<section class="content bg-light p-5">
+    <div class="container">
+        @Model.MainContent
+    </div>
+</section>
