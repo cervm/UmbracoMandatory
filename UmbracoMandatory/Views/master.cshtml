@@ -1,7 +1,50 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
 @{
-	Layout = null;
+    Layout = null;
+    var home = (HomePage)Model.Root();
 }
 
-@* the fun starts here *@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="description" content="@Model.Value("metaDescription")">
+    <meta name="keywords" content="@Model.Value("metaKeywords")">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/styles.css">
+
+    <title>@Model.Name - @home.SiteTitle</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand navbar-dark bg-dark shadow-sm">
+            <div class="container">
+                <a class="navbar-brand" href="/">@home.SiteTitle</a>
+            </div>
+        </nav>
+    </header>
+
+    <main role="main">
+        @RenderBody()
+    </main>
+
+    <footer class="text-muted">
+        <div class="container">
+            <p class="float-right">
+                <a href="#">Back to top</a>
+            </p>
+            <p>@home.Footer</p>
+        </div>
+    </footer>
+
+    <script src="~/Scripts/jquery-3.4.1.slim.min.js"></script>
+    <script src="~/Scripts/popper.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>
 
