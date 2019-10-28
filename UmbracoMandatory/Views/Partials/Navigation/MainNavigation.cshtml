@@ -13,7 +13,8 @@
         </li>
         @foreach (var item in selection)
         {
-            bool hasChildren = item.Children().Where(x => x.IsVisible()).Count() > 0;
+            var subItems = item.Children().Where(x => x.IsVisible() && (x.HasProperty("projectStatus") ? x.GetProperty("projectStatus").Value<string>() == "Completed" : true));
+            bool hasChildren = subItems.Count() > 0;
 
             <li class="nav-item @(item.IsAncestorOrSelf(Model) ? "active" : null) @(hasChildren ? "dropdown" : null)">
                 @if (hasChildren)
@@ -21,7 +22,7 @@
                     <a class="nav-link dropdown-toggle" href="@item.Url" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@item.Name</a>
 
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        @foreach (var subItem in item.Children().Where(x => x.IsVisible()))
+                        @foreach (var subItem in subItems)
                         {
                             <a class="dropdown-item" href="@subItem.Url">@subItem.Name</a>
                         }
