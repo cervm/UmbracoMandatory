@@ -1,4 +1,4 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.TextPage>
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.GridLayoutPage>
 @using ContentModels = Umbraco.Web.PublishedModels;
 @{
     Layout = "master.cshtml";
@@ -12,6 +12,6 @@
 
 <section class="content p-5">
     <div class="container">
-        @Model.MainContent
+        @Html.GetGridHtml(Model, "mainContent")
     </div>
 </section>
