@@ -14,7 +14,7 @@
     <div class="container">
         @Model.ProjectsBodyText
         <div class="row">
-            @foreach (ProjectItem item in Model.Children)
+            @foreach (ProjectItem item in Model.Children.Where(x => Umbraco.MemberHasAccess(x.Path)))
             {
                 <div class="col-md-4">
                     <div class="card mb-4 shadow-sm">
@@ -29,12 +29,5 @@
                 </div>
             }
         </div>
-    </div>
-</section>
-
-<section class="bg-light py-5">
-    <div class="container">
-        <h2 class="mb-5 text-center">Our Latest Projects</h2>
-        @Umbraco.RenderMacro("listNewestProjects")
     </div>
 </section>
