@@ -27,8 +27,12 @@
                             {
                                 string[] skills = member.GetValue("skills").ToString().Split(',');
                                 string skillString = string.Join(", ", skills.Select(item => item)).Replace("\"", "").TrimStart('[').TrimEnd(']');
-                                <span>@skillString</span>
+                                <p>
+                                    <strong>Skills:</strong>
+                                    <span>@skillString</span>
+                                </p>
                             }
+                            <a class="btn btn-outline-primary btn-sm" href="mailto:@member.Email">Send Email</a>
                         </div>
                     </div>
                 </div>
