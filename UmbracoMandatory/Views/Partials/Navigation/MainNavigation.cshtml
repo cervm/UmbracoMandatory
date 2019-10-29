@@ -13,7 +13,7 @@
         </li>
         @foreach (var item in selection)
         {
-            var subItems = item.Children().Where(x => x.IsVisible() && (x.HasProperty("projectStatus") ? x.GetProperty("projectStatus").Value<string>() == "Completed" : true));
+            var subItems = item.Children().Where(x => x.IsVisible());
             bool hasChildren = subItems.Count() > 0;
 
             if (Umbraco.MemberHasAccess(item.Path))
