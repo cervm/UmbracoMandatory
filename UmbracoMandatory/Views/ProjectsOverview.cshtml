@@ -1,5 +1,40 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.ProjectsOverview>
 @using ContentModels = Umbraco.Web.PublishedModels;
 @{
-	Layout = "master.cshtml";
+    Layout = "master.cshtml";
 }
+
+<section class="jumbotron text-center">
+    <div class="container">
+        <h1 class="jumbotron-heading">@Model.ProjectsTitle</h1>
+    </div>
+</section>
+
+<section class="content p-5">
+    <div class="container">
+        @Model.ProjectsBodyText
+        <div class="row">
+            @foreach (ProjectItem item in Model.Children)
+            {
+                <div class="col-md-4">
+                    <div class="card mb-4 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">@item.ProjectTitle</h5>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <a href="@item.Url" class="btn btn-primary btn-sm">Show Project</a>
+                                <small class="text-muted">@item.ProjectStatus</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<section class="bg-light py-5">
+    <div class="container">
+        <h2 class="mb-5 text-center">Our Latest Projects</h2>
+        @Umbraco.RenderMacro("listNewestProjects")
+    </div>
+</section>
