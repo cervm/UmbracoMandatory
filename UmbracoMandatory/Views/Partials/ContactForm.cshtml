@@ -1,4 +1,8 @@
 ﻿@model UmbracoMandatory.ViewModels.ContactForm
+@{
+    Html.EnableClientValidation();
+    Html.EnableUnobtrusiveJavaScript();
+}
 
 @using (Html.BeginUmbracoForm("HandleFormSubmit", "ContactFormSurface"))
 {
